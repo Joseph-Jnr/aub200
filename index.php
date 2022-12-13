@@ -141,13 +141,24 @@ if (($_SERVER["REQUEST_METHOD"] == "POST")) {
                     $_SESSION["app_email"] = $row['email'];
                     $_SESSION['expire'] = time() + (45 * 60);
 
-                    
+                    $result = mysqli_query($link, $sql);
+
+                    // Redirect to dashboard
+                    header("location: dashboard/?success");
+                    exit();
                 }
+            } else {
+                // Redirect to error page or same page
+                header("location: ./?error");
+                exit();
             }
-        }
 
+            // Close statement
+            mysqli_stmt_close($stmt);
+        } 
 
-
+        // Close connection
+        mysqli_close($link);
     }
 }
 
