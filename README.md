@@ -1,4 +1,4 @@
-# AUB 200 Level 2nd Semester Exam 
+# AUB 200 Level 1st Semester Exam 
 ###### Code boiler plate
 
 ## Follow the instructions below to complete your task:
