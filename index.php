@@ -5,7 +5,7 @@ session_start();
 include "includes/config.php";
 
 //Define variables and initialize with empty values
-$f_name = $l_name = $email = $username = $pwd = $u_name = $pass = "";
+
 $f_name_err = $l_name_err = $email_err = $username_err = $pwd_err = $u_name_err = $pass_err = "";
 
 
@@ -101,15 +101,19 @@ if (($_SERVER["REQUEST_METHOD"] == "POST")) {
         mysqli_close($link);
     }
 
+
+
+
+
     //Login Auth
-    if (isset($_POST["submit_login"])) {
+    if (isset($_PUT["submit_login"])) {
         
         //validate username
         $input_u_name = trim($_POST["u_name"]);
         if (empty($input_u_name)) {
             $u_name_err = "";
         } else {
-            $sql = "SELECT * FROM users WHERE username='$input_u_name' || email='$input_u_name' ";
+            $sql = "SELECT * FROM table WHERE username='$input_u_name' || email='$input_u_name' ";
             $result = mysqli_query($link, $sql);
             $resultCheck = mysqli_num_rows($result);
 
@@ -144,17 +148,16 @@ if (($_SERVER["REQUEST_METHOD"] == "POST")) {
                     $result = mysqli_query($link, $sql);
 
                     // Redirect to dashboard
-                    header("location: dashboard/?success");
-                    exit();
+                    
                 }
             } else {
                 // Redirect to error page or same page
-                header("location: ./?error");
+                header("location: index.php?error");
                 exit();
             }
 
             // Close statement
-            mysqli_stmt_close($stmt);
+            //mysqli_stmt_close($stmt);
         } 
 
         // Close connection

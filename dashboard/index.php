@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['app_user'])) {
+	header("Location: ../index.php?unauthorized_access");
+	exit();
+}
+
+$username = $_SESSION["app_user"];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +27,8 @@
                 <img src="../assets/img/pngfind.com-bell-icon-png-50085.png" alt="christmas icon">
             </div>
             <div class="body">
-                <h2>Welcome John!</h2>
-                <p>Your login was successful. <b>Merry Christmas!</b></p>
+                <h2>Welcome <?php echo $username; ?>!</h2>
+                <p>Your login was successful. <b><marquee behavior="" direction="">Merry Christmas and a happy new year!</marquee></b></p>
             </div>
         </div>
     </div>

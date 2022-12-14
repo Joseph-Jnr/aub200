@@ -4,7 +4,8 @@
 ## Follow the instructions below to complete your task:
 - The file index.php, contains code that enables a user to login to a dashboard. 
 - You are to find errors in this code and fix them.
-- Create a database with the following fields
+- Create a database with the name *** exam_code *** 
+- Create a table *** users *** with the following fields
     - id (int 15)
     - first_name (varchar 255)
     - last_name (varchar 255)
@@ -23,7 +24,11 @@ Guide to push to GitHub
 ```
 git init
 git add .
-git commit -m "my first commit" //you can write any phrase here
+git commit -m "my first commit" 
 git remote add origin <REMOTE_URL>
 git push origin main
 ```
+
+## Expected result
+
+![Dashboard screenshot](/assets/img/Screenshot%20(3).png)
